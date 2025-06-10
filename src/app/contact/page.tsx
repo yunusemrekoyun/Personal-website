@@ -3,25 +3,27 @@ import { Container } from "@/components/Container";
 import { Heading } from "@/components/Heading";
 import { Highlight } from "@/components/Highlight";
 import { Paragraph } from "@/components/Paragraph";
-import { Products } from "@/components/Products";
 import { Metadata } from "next";
-import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Contact | John Doe",
+  title: "Contact | Yunus Emre Koyun",
   description:
-    "John Doe is a developer, writer and speaker. He is a digital nomad and travels around the world while working remotely.",
+    "Yunus Emre Koyun is a developer who loves building web applications, games, and scalable systems.",
 };
 
-export default function Projects() {
+export default function ContactPage() {
   return (
     <Container>
       <span className="text-4xl">✉️</span>
-      <Heading className="font-black mb-2">Contact Me</Heading>
-      <Paragraph className="mb-10 max-w-xl">
+      <Heading className="font-black pb-4 text-primary dark:text-white">
+        Contact Me
+      </Heading>
+
+      <Paragraph className="mb-10 max-w-xl text-neutral-700 dark:text-neutral-200">
         Reach out to me over email or fill up this contact form. I will get back
-        to you ASAP - I promise.{" "}
+        to you <Highlight>ASAP</Highlight> – I promise.
       </Paragraph>
+
       <Contact />
     </Container>
   );

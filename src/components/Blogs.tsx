@@ -27,7 +27,7 @@ export const Blogs = ({ blogs }: { blogs: Blog[] }) => {
           <Link
             key={`blog-${blog.title}`}
             href={`/blog/${blog.slug}`}
-            className="relative my-10 block"
+            className="relative my-10 block group"
             onMouseEnter={() => setHovered(blog.slug)}
             onMouseLeave={() => setHovered(null)}
           >
@@ -46,11 +46,10 @@ export const Blogs = ({ blogs }: { blogs: Blog[] }) => {
                   }}
                   exit={{
                     opacity: 0,
-
                     scaleX: 0.95,
                     scaleY: 0.95,
                   }}
-                  className="absolute z-0 pointer-events-none bg-gray-50 inset-0 h-full w-full   rounded-md "
+                  className="absolute z-0 pointer-events-none bg-gray-50 dark:bg-neutral-800 inset-0 h-full w-full rounded-md transition"
                 />
               )}
             </AnimatePresence>
@@ -64,17 +63,17 @@ export const Blogs = ({ blogs }: { blogs: Blog[] }) => {
                 className="rounded-md object-cover h-40 w-60"
               />
               <div className="flex flex-col col-span-3">
-                <Heading className="text-lg md:text-lg lg:text-lg">
+                <Heading className="text-lg md:text-lg lg:text-lg text-primary dark:text-white">
                   {blog.title}
                 </Heading>
-                <Paragraph className="text-sm md:text-sm lg:text-sm mt-2">
+                <Paragraph className="text-sm md:text-sm lg:text-sm mt-2 text-secondary dark:text-neutral-300">
                   {blog.description}
                 </Paragraph>
                 <div className="flex space-x-2 flex-wrap mt-4">
                   {blog.tags?.map((tag, index) => (
                     <span
-                      key={`tag-${blog.slug}`}
-                      className="text-xs px-1 py-0.5 text-secondary border border-neutral-200 bg-white rounded-md"
+                      key={`tag-${blog.slug}-${index}`}
+                      className="text-xs px-1 py-0.5 text-secondary dark:text-neutral-200 border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 rounded-md"
                     >
                       {tag}
                     </span>

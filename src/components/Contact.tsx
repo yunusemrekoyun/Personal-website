@@ -2,83 +2,73 @@
 import React, { useState } from "react";
 
 const defaultFormState = {
-  name: {
-    value: "",
-    error: "",
-  },
-  email: {
-    value: "",
-    error: "",
-  },
-  message: {
-    value: "",
-    error: "",
-  },
+  name: { value: "", error: "" },
+  email: { value: "", error: "" },
+  message: { value: "", error: "" },
 };
+
 export const Contact = () => {
   const [formData, setFormData] = useState(defaultFormState);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Write your submit logic here
-    console.log(formData);
+    console.log(formData); // Backend entegrasyonu için burası
   };
+
+  const inputBaseStyles =
+    "px-3 py-2 w-full rounded-md text-sm transition outline-none";
+  const lightMode =
+    "bg-neutral-100 text-neutral-800 placeholder-neutral-500 focus:ring-2 focus:ring-neutral-300";
+  const darkMode =
+    "dark:bg-neutral-700 dark:text-neutral-100 dark:placeholder-neutral-400 dark:focus:ring-2 dark:focus:ring-neutral-500";
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <div className="flex flex-col md:flex-row justify-between gap-5">
         <input
           type="text"
           placeholder="Your Name"
-          className="bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 py-2 rounded-md text-sm text-neutral-700 w-full"
+          className={`${inputBaseStyles} ${lightMode} ${darkMode}`}
           value={formData.name.value}
-          onChange={(e) => {
+          onChange={(e) =>
             setFormData({
               ...formData,
-              name: {
-                value: e.target.value,
-                error: "",
-              },
-            });
-          }}
+              name: { value: e.target.value, error: "" },
+            })
+          }
         />
         <input
           type="email"
-          placeholder="Your email address"
-          className="bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 py-2 rounded-md text-sm text-neutral-700 w-full"
+          placeholder="Your Email"
+          className={`${inputBaseStyles} ${lightMode} ${darkMode}`}
           value={formData.email.value}
-          onChange={(e) => {
+          onChange={(e) =>
             setFormData({
               ...formData,
-              email: {
-                value: e.target.value,
-                error: "",
-              },
-            });
-          }}
+              email: { value: e.target.value, error: "" },
+            })
+          }
         />
       </div>
-      <div>
-        <textarea
-          placeholder="Your Message"
-          rows={10}
-          className="bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 mt-4 py-2 rounded-md text-sm text-neutral-700 w-full"
-          value={formData.message.value}
-          onChange={(e) => {
-            setFormData({
-              ...formData,
-              message: {
-                value: e.target.value,
-                error: "",
-              },
-            });
-          }}
-        />
-      </div>
+
+      <textarea
+        placeholder="Your Message"
+        rows={10}
+        className={`${inputBaseStyles} ${lightMode} ${darkMode} mt-4 resize-none`}
+        value={formData.message.value}
+        onChange={(e) =>
+          setFormData({
+            ...formData,
+            message: { value: e.target.value, error: "" },
+          })
+        }
+      />
+
       <button
-        className="w-full px-2 py-2 mt-4 bg-neutral-100 rounded-md font-bold text-neutral-500"
         type="submit"
+        className="w-full mt-4 bg-sky-600 text-white font-semibold py-2 rounded-md hover:bg-sky-700 transition"
       >
-        Submit{" "}
+        Submit
       </button>
     </form>
   );
