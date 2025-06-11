@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 export default function About() {
   const images = [
-    "https://images.unsplash.com/photo-1692544350322-ac70cfd63614?...",
-    "https://images.unsplash.com/photo-1692374227159-2d3592f274c9?...",
-    "https://images.unsplash.com/photo-1692005561659-cdba32d1e4a1?...",
-    "https://images.unsplash.com/photo-1692445381633-7999ebc03730?...",
+    "/images/about-1.jpeg",
+    "/images/about-2.jpeg",
+    "/images/about-3.jpeg",
+    "/images/about-4.jpeg",
   ];
 
   return (
@@ -34,7 +34,7 @@ export default function About() {
                 src={image}
                 width={200}
                 height={400}
-                alt="about"
+                alt={`about-image-${index + 1}`}
                 className="object-cover block w-full h-40 md:h-60 
                 transform transition-transform duration-200 hover:rotate-0"
               />
@@ -46,31 +46,22 @@ export default function About() {
       {/* Metin Alanı */}
       <div className="max-w-4xl">
         <Paragraph className="mt-4">
-          Hey there, I&apos;m John Doe - a passionate developer, avid writer,
-          and a connoisseur of awesome design. Welcome to my corner of the
-          digital world!
+          I&apos;m Yunus — someone who likes calm places, quiet moments, and not
+          overcomplicating things.
         </Paragraph>
         <Paragraph className="mt-4">
-          Since the early days of my journey, I&apos;ve been captivated by the
-          art of crafting exceptional digital experiences...
+          I enjoy walking around the city with music in my ears, grabbing coffee
+          alone, or just sitting somewhere and people-watching.
         </Paragraph>
         <Paragraph className="mt-4">
-          But my journey doesn&apos;t stop at coding. With a heart full of
-          words...
+          I&apos;m not the loudest person in the room, but I&apos;m usually the
+          one who notices the little stuff. I care about being real more than
+          looking impressive.
         </Paragraph>
         <Paragraph className="mt-4">
-          What sets me apart is my unwavering appreciation for design...
-        </Paragraph>
-        <Paragraph className="mt-4">
-          Through this website, I aim to share my insights, experiences, and
-          creations...
-        </Paragraph>
-        <Paragraph className="mt-4">
-          Join me on this journey of bytes and narratives...
-        </Paragraph>
-        <Paragraph className="mt-4">
-          Thank you for being here, and I can&apos;t wait to embark on this
-          adventure with you.
+          Also, I&apos;m pretty okay with silence. Not everything needs to be
+          said right away. If you&apos;re reading this, that means you&apos;re
+          curious — and I respect that.
         </Paragraph>
       </div>
     </div>

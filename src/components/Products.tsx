@@ -25,13 +25,15 @@ export const Products = () => {
                 rounded-2xl transition duration-200 pt-4 
                 hover:bg-gray-100 dark:hover:bg-neutral-700/60"
             >
-              <Image
-                src={product.thumbnail}
-                alt="thumbnail"
-                height="200"
-                width="200"
-                className="rounded-md"
-              />
+              <div className="relative w-[300px] h-[180px] flex-shrink-0 rounded-md bg-white dark:bg-neutral-800">
+                <Image
+                  src={product.thumbnail}
+                  alt="thumbnail"
+                  fill
+                  className="object-contain rounded-md"
+                />
+              </div>
+
               <div className="flex flex-col justify-between">
                 <div>
                   <Heading
@@ -44,12 +46,11 @@ export const Products = () => {
                     {product.description}
                   </Paragraph>
                 </div>
-                <div className="flex space-x-2 md:mb-1 mt-2 md:mt-0">
+                <div className="flex flex-wrap gap-2 md:mb-1 mt-2 md:mt-0">
                   {product.stack?.map((stack: string) => (
                     <span
                       key={stack}
-                      className="text-xs md:text-xs lg:text-xs 
-                        bg-gray-100 dark:bg-neutral-700 px-2 py-1 rounded-sm 
+                      className="text-xs bg-gray-100 dark:bg-neutral-700 px-2 py-1 rounded-sm 
                         text-secondary dark:text-neutral-200"
                     >
                       {stack}
