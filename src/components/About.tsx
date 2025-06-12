@@ -8,13 +8,12 @@ export default function About() {
     "/images/about-1.jpeg",
     "/images/about-2.jpeg",
     "/images/about-3.jpeg",
-    "/images/about-4.jpeg",
   ];
 
   return (
     <div className="text-secondary dark:text-neutral-100">
       {/* Görsel Galerisi */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 my-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-10">
         {images.map((image, index) => (
           <motion.div
             key={image}

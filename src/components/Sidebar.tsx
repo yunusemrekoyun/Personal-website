@@ -133,7 +133,7 @@ const SidebarHeader = () => {
         <Image
           src={
             isBitmoji
-              ? "/images/profile-picture/bitmojii.png"
+              ? "/images/profile-picture/bitmoji.png"
               : "/images/profile-picture/profile.jpg"
           }
           alt="Yunus Emre Koyun"

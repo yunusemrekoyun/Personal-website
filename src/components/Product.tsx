@@ -19,16 +19,14 @@ export const SingleProduct = ({ product }: { product: Product }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         key={product.slug}
-        className="relative"
+        className="relative w-full max-w-4xl h-[500px] mx-auto bg-neutral-100 dark:bg-neutral-800 rounded-md"
       >
         <Image
           src={activeImage}
           alt="thumbnail"
-          height={1000}
-          width={1000}
-          className="rounded-md object-contain"
+          fill
+          className="object-contain rounded-md"
         />
-        <div className="absolute inset-0 pointer-events-none after:absolute after:bottom-0 after:left-0 after:w-full after:h-24 after:bg-gradient-to-b after:from-transparent after:to-white dark:after:to-neutral-900 after:z-10" />{" "}
       </motion.div>
 
       <div className="flex flex-row justify-center my-8 flex-wrap">
@@ -77,7 +75,7 @@ export const SingleProduct = ({ product }: { product: Product }) => {
         target="__blank"
         className="inline-flex items-center gap-1 group/button rounded-full hover:scale-105 focus:outline-none transition ring-offset-gray-900 bg-gray-800 dark:bg-neutral-800 text-white shadow-lg shadow-black/20 sm:backdrop-blur-sm group-hover/button:bg-gray-50/15 dark:group-hover/button:bg-white/10 group-hover/button:scale-105 focus-visible:ring-1 focus-visible:ring-offset-2 ring-gray-50/60 text-sm font-medium px-4 py-2 mt-auto origin-left"
       >
-        Live Preview
+        GitHub Repository
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

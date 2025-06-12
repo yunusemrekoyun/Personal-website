@@ -20,7 +20,6 @@ export default function AboutPage() {
     "/images/about-1.jpeg",
     "/images/about-2.jpeg",
     "/images/about-3.jpeg",
-    "/images/about-4.jpeg",
   ];
   return (
     <Container>

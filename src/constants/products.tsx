@@ -14,11 +14,14 @@ import colorBomb1 from "public/images/color-bomb-1.png";
 import colorBomb2 from "public/images/color-bomb-2.png";
 import colorBomb3 from "public/images/color-bomb-3.png";
 
+import folderNavigator1 from "public/images/folder-navigator-1.png";
+
 export const products = [
   {
     href: "https://kozmetik.com",
-    title: "Kozmetik Sitesi",
-    description: "Responsive and fully integrated e-commerce admin platform.",
+    title: "E-Commerce Cosmetic Site",
+    description:
+      "A responsive and fully-featured e-commerce platform built with the MERN stack and token-based authentication.",
     thumbnail: kozmetik1,
     images: [kozmetik1, kozmetik2, kozmetik3],
     stack: ["React", "Express", "MongoDB", "Node.js"],
@@ -26,27 +29,27 @@ export const products = [
     content: (
       <div>
         <p>
-          This project was built on the foundation of a Udemy course by Emin
-          Basbayan, and then personalized with my own improvements. It&apos;s a
-          fullstack MERN application with{" "}
-          <strong>token-based authentication</strong>.
+          A responsive and fully-featured e-commerce platform built with the{" "}
+          <strong>MERN stack</strong> and{" "}
+          <strong>token-based authentication</strong>. Designed for both desktop
+          and mobile users, the platform delivers a seamless shopping experience
+          from product discovery to checkout.
         </p>
         <p>
-          The admin panel includes dynamic campaign management, product control,
-          sales statistics, and user comment moderation. Fully responsive on
-          both desktop and mobile devices.
+          Includes a powerful admin dashboard for managing dynamic campaigns,
+          products, inventory, user comments, and viewing real-time sales
+          analytics — all wrapped in a clean and intuitive interface.
         </p>
 
         <hr className="my-6" />
-
-        
       </div>
     ),
   },
   {
     href: "https://cini.com",
-    title: "Çini Ürünleri",
-    description: "Product showroom site built for a real client.",
+    title: "Product and Blog Showroom",
+    description:
+      "A fully dynamic and responsive product showroom platform developed for a real client.",
     thumbnail: cini1,
     images: [cini1, cini2, cini3],
     stack: ["React", "Express", "MongoDB", "Node.js"],
@@ -54,18 +57,21 @@ export const products = [
     content: (
       <div>
         <p>
-          This is a fully dynamic showroom website made for a real client. Every
-          section is manageable from the admin panel. No sales system — just
-          clean product showcasing.
+          A fully dynamic and responsive product showroom platform developed for
+          a real client. The site features an admin dashboard for complete
+          control over products, categories, blogs, and user interactions —
+          without any sales system, making it ideal for portfolio-style product
+          presentation.
         </p>
         <p>
-          Products and blogs are displayed in gallery style with individual
-          pages. The entire site is responsive and optimized for both desktop
-          and mobile.
+          Products and blog posts are displayed in an elegant, gallery-style
+          layout with individual detail pages. Users can like, comment, and save
+          items to their wishlist. The platform also includes role-based access
+          control, image compression, and rich-text editing — all optimized for
+          a smooth experience across desktop and mobile devices.
         </p>
 
         <hr className="my-6" />
-
       </div>
     ),
   },
@@ -89,8 +95,6 @@ export const products = [
         </p>
 
         <hr className="my-6" />
-
-   
       </div>
     ),
   },
@@ -115,8 +119,28 @@ export const products = [
         </p>
 
         <hr className="my-6" />
+      </div>
+    ),
+  },
+  {
+    href: "https://foldernavigator.com",
+    title: "Folder Navigator App",
+    description:
+      "Lightweight folder explorer built with Electron and voice/text command support.",
+    thumbnail: folderNavigator1,
+    images: [folderNavigator1],
+    stack: ["Electron", "JavaScript", "Node.js"],
+    slug: "folder-navigator-app",
+    content: (
+      <div>
+        <p>
+          Folder Navigator is a lightweight Electron application that lets you
+          navigate folders at lightning speed using voice or text commands. It
+          features back-forward history management, list-grid view, and smart
+          search, allowing you to effortlessly explore your files in one screen.
+        </p>
 
-
+        <hr className="my-6" />
       </div>
     ),
   },
