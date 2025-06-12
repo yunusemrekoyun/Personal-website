@@ -36,7 +36,7 @@ export const Sidebar = () => {
               onClick={() => isMobile() && setOpen(false)}
               className="space-y-4"
             >
-              <Badge href="/resume" text="Read Resume" />
+              {/* <Badge href="/resume" text="Read Resume" /> */}
               <DarkModeToggle />
             </div>
           </motion.div>

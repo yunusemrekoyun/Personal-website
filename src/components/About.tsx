@@ -45,22 +45,37 @@ export default function About() {
       {/* Metin Alanı */}
       <div className="max-w-4xl">
         <Paragraph className="mt-4">
-          I&apos;m Yunus — someone who likes calm places, quiet moments, and not
-          overcomplicating things.
+          I&apos;m Yunus Emre Koyun — a Fullstack Developer with a background in
+          Computer Engineering.
+        </Paragraph>
+
+        <Paragraph className="mt-2 text-sm italic text-neutral-500 dark:text-neutral-400">
+          🎓 B.Sc. in Computer Engineering, Amasya University (2021 – 2025)
+        </Paragraph>
+        
+        <Paragraph className="mt-4">
+          I develop complete web applications from scratch, mainly using the
+          MERN stack. My work spans from building RESTful APIs and backend logic
+          to crafting responsive and intuitive user interfaces with React.
         </Paragraph>
         <Paragraph className="mt-4">
-          I enjoy walking around the city with music in my ears, grabbing coffee
-          alone, or just sitting somewhere and people-watching.
+          On the frontend, I structure every part of the UI as independent,
+          reusable components. This approach allows me to quickly transfer,
+          scale, or customize features across projects without rewriting the
+          logic — making development faster, cleaner, and more maintainable.
         </Paragraph>
         <Paragraph className="mt-4">
-          I&apos;m not the loudest person in the room, but I&apos;m usually the
-          one who notices the little stuff. I care about being real more than
-          looking impressive.
+          I also design and develop mobile games using Unity. I focus on
+          building lightweight, engaging mechanics with scalable systems and
+          level structures tailored for casual gaming experiences on mobile
+          platforms.
         </Paragraph>
         <Paragraph className="mt-4">
-          Also, I&apos;m pretty okay with silence. Not everything needs to be
-          said right away. If you&apos;re reading this, that means you&apos;re
-          curious — and I respect that.
+          I care deeply about clean architecture, performance optimization, and
+          writing code that&apos;s both scalable and developer-friendly.
+          I&apos;m currently seeking to bring this mindset into a professional
+          environment where I can contribute to real-world products, collaborate
+          with a solid team, and push my skill set even further.
         </Paragraph>
       </div>
     </div>

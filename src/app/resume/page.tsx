@@ -12,9 +12,10 @@ export default function Home() {
         Work History
       </Heading>
       <Paragraph className="max-w-xl mt-4 text-secondary dark:text-neutral-300">
-        I&apos;m a full-stack developer that loves{" "}
-        <Highlight>building products</Highlight> and web apps that can impact
-        millions of lives
+        I’m a full-stack developer with a Computer Engineering degree from
+        Amasya University. I enjoy{" "}
+        <Highlight>building scalable applications</Highlight> and crafting
+        intuitive digital experiences using modern technologies.
       </Paragraph>
       <WorkHistory />
     </Container>

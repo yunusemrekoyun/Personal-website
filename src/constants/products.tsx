@@ -18,7 +18,7 @@ import folderNavigator1 from "public/images/folder-navigator-1.png";
 
 export const products = [
   {
-    href: "https://kozmetik.com",
+    href: "https://github.com/stars/yunusemrekoyun/lists/cosmetic",
     title: "E-Commerce Cosmetic Site",
     description:
       "A responsive and fully-featured e-commerce platform built with the MERN stack and token-based authentication.",
@@ -46,7 +46,7 @@ export const products = [
     ),
   },
   {
-    href: "https://cini.com",
+    href: "https://github.com/yunusemrekoyun/MERN-Product-Showroom-Project",
     title: "Product and Blog Showroom",
     description:
       "A fully dynamic and responsive product showroom platform developed for a real client.",
@@ -76,9 +76,10 @@ export const products = [
     ),
   },
   {
-    href: "https://bbtan.com",
+    href: "https://github.com/yunusemrekoyun/BallBlastingGame",
     title: "BBTan Clone",
-    description: "Minimalist block-breaking game built with Unity.",
+    description:
+      "Minimalist block-breaking game inspired by BBTAN, built with Unity.",
     thumbnail: bbTan1,
     images: [bbTan1, bbTan2, bbTan3],
     stack: ["Unity", "C#"],
@@ -86,12 +87,24 @@ export const products = [
     content: (
       <div>
         <p>
-          A project I developed during university, inspired by BBTAN. The game
-          is simple but cleanly written, with solid gameplay logic.
+          Minimalist block-breaking game inspired by BBTAN, developed with
+          Unity.
         </p>
-        <p>
-          The landing page features 3 in-game screenshots. I&apos;m planning to
-          embed the game as a WebGL build soon.
+        <p className="mt-4">
+          This project was built to explore the fundamentals of mobile game
+          development — including object pooling, dynamic spawning, and
+          physics-driven gameplay.
+        </p>
+        <p className="mt-4">
+          The codebase is clean and modular: each mechanic (like brick behavior,
+          spawning logic, power-ups, and input control) is handled through
+          separate components. State management is dictionary-based, ensuring
+          flexibility and scalability in future iterations.
+        </p>
+        <p className="mt-4">
+          Though simple in design, the game is fully functional and optimized
+          for touch interaction, offering a responsive experience that mirrors
+          commercial mobile puzzle games.
         </p>
 
         <hr className="my-6" />
@@ -99,7 +112,7 @@ export const products = [
     ),
   },
   {
-    href: "https://colorbomb.com",
+    href: "https://github.com/yunusemrekoyun/Color-Bomb",
     title: "Color Bomb Game",
     description: "Match-3 style mobile puzzle game with colorful design.",
     thumbnail: colorBomb1,
@@ -123,7 +136,7 @@ export const products = [
     ),
   },
   {
-    href: "https://foldernavigator.com",
+    href: "https://github.com/yunusemrekoyun/Folder-Navigator",
     title: "Folder Navigator App",
     description:
       "Lightweight folder explorer built with Electron and voice/text command support.",

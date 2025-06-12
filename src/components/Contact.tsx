@@ -9,10 +9,43 @@ const defaultFormState = {
 
 export const Contact = () => {
   const [formData, setFormData] = useState(defaultFormState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData); // Backend entegrasyonu için burası
+    setIsSubmitting(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    const payload = {
+      name: formData.name.value,
+      email: formData.email.value,
+      message: formData.message.value,
+    };
+
+    try {
+      const res = await fetch("https://formspree.io/f/xkgbrvqa", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        setSuccessMessage("Message sent successfully!");
+        setFormData(defaultFormState);
+      } else {
+        setErrorMessage("Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setErrorMessage("An error occurred. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputBaseStyles =
@@ -27,7 +60,9 @@ export const Contact = () => {
       <div className="flex flex-col md:flex-row justify-between gap-5">
         <input
           type="text"
+          name="name"
           placeholder="Your Name"
+          required
           className={`${inputBaseStyles} ${lightMode} ${darkMode}`}
           value={formData.name.value}
           onChange={(e) =>
@@ -39,7 +74,9 @@ export const Contact = () => {
         />
         <input
           type="email"
+          name="email"
           placeholder="Your Email"
+          required
           className={`${inputBaseStyles} ${lightMode} ${darkMode}`}
           value={formData.email.value}
           onChange={(e) =>
@@ -52,8 +89,10 @@ export const Contact = () => {
       </div>
 
       <textarea
+        name="message"
         placeholder="Your Message"
         rows={10}
+        required
         className={`${inputBaseStyles} ${lightMode} ${darkMode} mt-4 resize-none`}
         value={formData.message.value}
         onChange={(e) =>
@@ -66,10 +105,18 @@ export const Contact = () => {
 
       <button
         type="submit"
-        className="w-full mt-4 bg-sky-600 text-white font-semibold py-2 rounded-md hover:bg-sky-700 transition"
+        disabled={isSubmitting}
+        className="w-full mt-4 bg-sky-600 text-white font-semibold py-2 rounded-md hover:bg-sky-700 transition disabled:opacity-50"
       >
-        Submit
+        {isSubmitting ? "Sending..." : "Submit"}
       </button>
+
+      {successMessage && (
+        <p className="mt-4 text-green-600 font-medium">{successMessage}</p>
+      )}
+      {errorMessage && (
+        <p className="mt-4 text-red-600 font-medium">{errorMessage}</p>
+      )}
     </form>
   );
 };
