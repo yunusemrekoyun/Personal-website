@@ -3,16 +3,15 @@ import { navlinks } from "@/constants/navlinks";
 import { Navlink } from "@/types/navlink";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { Heading } from "./Heading";
 import { socials } from "@/constants/socials";
-import { Badge } from "./Badge";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconLayoutSidebarRightCollapse } from "@tabler/icons-react";
 import { isMobile } from "@/lib/utils";
-import { DarkModeToggle } from "./DarkModeToggle"; // en üste import et
+import { DarkModeToggle } from "./DarkModeToggle";
 
 export const Sidebar = () => {
   const [open, setOpen] = useState(isMobile() ? false : true);
@@ -21,32 +20,51 @@ export const Sidebar = () => {
     <>
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ x: -200 }}
-            animate={{ x: 0 }}
-            transition={{ duration: 0.2, ease: "linear" }}
-            exit={{ x: -200 }}
-            className="px-6 z-[100] py-10 bg-neutral-100 dark:bg-neutral-900 max-w-[14rem] lg:w-fit fixed lg:relative h-screen left-0 flex flex-col justify-between transition-colors"
-          >
-            <div className="flex-1 overflow-visible">
-              <SidebarHeader />
-              <Navigation setOpen={setOpen} />
-            </div>
-            <div
-              onClick={() => isMobile() && setOpen(false)}
-              className="space-y-4"
+          <>
+            {/* Karanlık arka plan, tıklanınca sidebar kapanır */}
+            <motion.div
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 bg-black bg-opacity-30 z-[90] lg:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+
+            <motion.div
+              initial={{ x: -200 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.2, ease: "linear" }}
+              exit={{ x: -200 }}
+              className="px-6 z-[100] py-10 bg-neutral-100 dark:bg-neutral-900 max-w-[14rem] lg:w-fit fixed lg:relative h-screen left-0 flex flex-col justify-between transition-colors"
             >
-              {/* <Badge href="/resume" text="Read Resume" /> */}
-              <DarkModeToggle />
-            </div>
-          </motion.div>
+              <div className="flex-1 overflow-visible">
+                <SidebarHeader />
+                <Navigation setOpen={setOpen} />
+              </div>
+
+              {/* Dark Mode Toggle */}
+              <div className="space-y-4">
+                {/* Masaüstü görünüm */}
+                <div className="hidden lg:block">
+                  <DarkModeToggle />
+                </div>
+
+                {/* Mobil görünüm: Sol altta sabit */}
+                <div className="lg:hidden fixed bottom-4 left-4 z-[9999]">
+                  <DarkModeToggle />
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
+
+      {/* Sol üstte hamburger buton */}
       <button
-        className="fixed lg:hidden bottom-4 right-4 h-8 w-8 border border-neutral-200 dark:border-neutral-700 rounded-full backdrop-blur-sm flex items-center justify-center z-50 bg-white dark:bg-neutral-800"
+        className="fixed lg:hidden top-4 left-4 h-10 w-10 border border-neutral-200 dark:border-neutral-700 rounded-md backdrop-blur-sm flex items-center justify-center z-50 bg-white dark:bg-neutral-800 shadow-md"
         onClick={() => setOpen(!open)}
       >
-        <IconLayoutSidebarRightCollapse className="h-4 w-4 text-secondary dark:text-white" />
+        <IconLayoutSidebarRightCollapse className="h-5 w-5 text-secondary dark:text-white" />
       </button>
     </>
   );
@@ -58,7 +76,6 @@ export const Navigation = ({
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const pathname = usePathname();
-
   const isActive = (href: string) => pathname === href;
 
   return (
@@ -108,10 +125,7 @@ export const Navigation = ({
 
 const SidebarHeader = () => {
   const [isBitmoji, setIsBitmoji] = useState(false);
-
-  const handleClick = () => {
-    setIsBitmoji((prev) => !prev);
-  };
+  const handleClick = () => setIsBitmoji((prev) => !prev);
 
   return (
     <div className="flex flex-col items-center mb-6 overflow-visible relative z-50">
@@ -142,7 +156,6 @@ const SidebarHeader = () => {
           className="rounded-full object-cover aspect-square drop-shadow-2xl transition"
         />
       </motion.div>
-
       <p className="font-bold text-primary dark:text-white text-base mt-2">
         Yunus Emre Koyun
       </p>

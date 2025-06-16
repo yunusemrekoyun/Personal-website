@@ -2,16 +2,7 @@
 import nextMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "@mapbox/rehype-prism";
-
-const nextConfig = {
-  images: {
-    domains: ["images.unsplash.com", "res.cloudinary.com"],
-  },
-  experimental: {
-    mdxRs: true,
-  },
-};
-
+export const dynamicParams = false;
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
   options: {
@@ -19,5 +10,17 @@ const withMDX = nextMDX({
     rehypePlugins: [rehypePrism],
   },
 });
+
+const nextConfig = {
+  output: "export",
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+    domains: ["images.unsplash.com", "res.cloudinary.com"],
+  },
+  experimental: {
+    mdxRs: true,
+  },
+};
 
 export default withMDX(nextConfig);

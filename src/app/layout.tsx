@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { Footer } from "@/components/Footer";
-
+import Head from "next/head";
 const inter = Inter({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   title: "Yunus Emre Koyun - Full Stack Developer",
   description:
     "Yunus Emre Koyun is a full stack developer who loves building web applications, games, and scalable systems.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -24,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       {" "}
-      {/* BU SATIR ÖNEMLİ */}
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <body
         className={twMerge(
           inter.className,
