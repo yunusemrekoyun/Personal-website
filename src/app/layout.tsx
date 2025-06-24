@@ -33,7 +33,7 @@ export default function RootLayout({
       <body
         className={twMerge(
           inter.className,
-          "flex antialiased h-screen overflow-hidden bg-gray-100 dark:bg-neutral-900 text-black dark:text-white transition-colors duration-300"
+          "flex antialiased min-h-screen bg-gray-100 dark:bg-neutral-900 text-black dark:text-white transition-colors duration-300"
         )}
       >
         <Sidebar />

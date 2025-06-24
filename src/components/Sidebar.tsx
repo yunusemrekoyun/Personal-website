@@ -4,7 +4,7 @@ import { Navlink } from "@/types/navlink";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import { Heading } from "./Heading";
 import { socials } from "@/constants/socials";
@@ -14,7 +14,12 @@ import { isMobile } from "@/lib/utils";
 import { DarkModeToggle } from "./DarkModeToggle";
 
 export const Sidebar = () => {
-  const [open, setOpen] = useState(isMobile() ? false : true);
+  const [open, setOpen] = useState(false);
+
+  // client-side kontrol
+  useEffect(() => {
+    if (!isMobile()) setOpen(true);
+  }, []);
 
   return (
     <>
